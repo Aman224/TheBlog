@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for post in object_list %}
+    <div class="card">
+        <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+        <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.content }}</p>
+            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+            {{ post.date_posted }} by
+            <a href="#">{{ post.author }}</a>
+        </div>
+    </div>
+{% endfor %}
+
+<!-- Pagination -->
+<ul class="pagination justify-content-center mb-4">
+<li class="page-item">
+    <a class="page-link" href="#">&larr; Older</a>
+</li>
+<li class="page-item disabled">
+    <a class="page-link" href="#">Newer &rarr;</a>
+</li>
+</ul>
+
+{% endblock content %}
